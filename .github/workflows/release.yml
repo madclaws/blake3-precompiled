@@ -1,0 +1,31 @@
+name: Release
+on:
+  release:
+    types: [released]
+
+jobs:
+  release:
+    name: Publish release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display build environment
+        run: printenv
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: "25"
+          elixir-version: "1.14"
+      - name: Install dependencies
+        run: mix do local.hex --force, local.rebar --force, deps.get
+
+      - name: Compile code
+        run: mix compile
+      - name: Create docs
+        run: mix docs
+      - name: Publish release
+        run: mix hex.publish --yes
+        env:
+          HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
