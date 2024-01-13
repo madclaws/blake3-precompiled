@@ -2,7 +2,7 @@ defmodule MixBlake3.Project do
   use Mix.Project
 
   @source_url "https://github.com/madclaws/blake3-precompiled"
-  @version "0.1.4"
+  @version "0.1.5"
 
   def project do
     [
