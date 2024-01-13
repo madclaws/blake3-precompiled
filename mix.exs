@@ -48,7 +48,8 @@ defmodule MixBlake3.Project do
 
   def config_features() do
     simd =
-      case Application.get_env(:blake3_precompiled, :simd_mode) || System.get_env("BLAKE3_SIMD_MODE") do
+      case Application.get_env(:blake3_precompiled, :simd_mode) ||
+             System.get_env("BLAKE3_SIMD_MODE") do
         "c_neon" -> "neon"
         :c_neon -> "neon"
         "neon" -> "neon"
@@ -57,7 +58,9 @@ defmodule MixBlake3.Project do
       end
 
     rayon =
-      if !is_nil(Application.get_env(:blake3_precompiled, :rayon) || System.get_env("BLAKE3_RAYON")) do
+      if !is_nil(
+           Application.get_env(:blake3_precompiled, :rayon) || System.get_env("BLAKE3_RAYON")
+         ) do
         "rayon"
       else
         nil
