@@ -24,7 +24,15 @@ defmodule Blake3Precompiled.Project do
   defp package() do
     [
       description: "Elixir binding for the Rust Blake3 implementation",
-      files: ["lib", "native", ".formatter.exs", "README*", "LICENSE*", "mix.exs", "checksum-*.exs"],
+      files: [
+        "lib",
+        "native",
+        ".formatter.exs",
+        "README*",
+        "LICENSE*",
+        "mix.exs",
+        "checksum-*.exs"
+      ],
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => @source_url}
     ]
