@@ -12,7 +12,7 @@ defmodule Blake3.Native do
   use RustlerPrecompiled,
   otp_app: :blake3_precompiled,
   crate: "blake3_precompiled",
-  base_url: "#{github_url}/releases/download/v#{version}",
+  base_url: "#{github_url}/releases/download/#{version}",
   force_build: System.get_env("BLAKE3_PRECOMPILED_BUILD") in ["1", "true"],
   version: version,
   targets: ~w(

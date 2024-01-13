@@ -56,7 +56,7 @@ jobs:
       id: build-crate
       uses: philss/rustler-precompiled-action@v1.0.0
       with:
-        project-name: blake3-precompiled
+        project-name: blake3_precompiled
         project-version: ${{ env.PROJECT_VERSION }}
         target: ${{ matrix.job.target }}
         nif-version: ${{ matrix.nif }}
