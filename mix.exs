@@ -1,10 +1,13 @@
 defmodule MixBlake3.Project do
   use Mix.Project
 
+  @source_url "https://github.com/madclaws/blake3-precompiled"
+  @version "0.1.0"
+
   def project do
     [
-      app: :blake3,
-      version: "1.0.2",
+      app: :blake3_precompiled,
+      version: @version,
       elixir: "~> 1.13",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
@@ -23,13 +26,14 @@ defmodule MixBlake3.Project do
       description: "Elixir binding for the Rust Blake3 implementation",
       files: ["lib", "native", ".formatter.exs", "README*", "LICENSE*", "mix.exs"],
       licenses: ["Apache-2.0"],
-      links: %{"GitHub" => "https://github.com/Thomas-Jean/blake3"}
+      links: %{"GitHub" => @source_url}
     ]
   end
 
   defp deps do
     [
-      {:rustler, "~> 0.30"},
+      {:rustler_precompiled, "~> 0.7.0"},
+      {:rustler, "~> 0.30", optional: true},
       {:ex_doc, "~> 0.21", only: [:dev, :test], runtime: false}
     ]
   end
@@ -38,13 +42,13 @@ defmodule MixBlake3.Project do
     [
       extras: ["README.md"],
       main: "readme",
-      source_url: "https://github.com/Thomas-Jean/blake3"
+      source_url: @source_url
     ]
   end
 
   def config_features() do
     simd =
-      case Application.get_env(:blake3, :simd_mode) || System.get_env("BLAKE3_SIMD_MODE") do
+      case Application.get_env(:blake3_precompiled, :simd_mode) || System.get_env("BLAKE3_SIMD_MODE") do
         "c_neon" -> "neon"
         :c_neon -> "neon"
         "neon" -> "neon"
@@ -53,7 +57,7 @@ defmodule MixBlake3.Project do
       end
 
     rayon =
-      if !is_nil(Application.get_env(:blake3, :rayon) || System.get_env("BLAKE3_RAYON")) do
+      if !is_nil(Application.get_env(:blake3_precompiled, :rayon) || System.get_env("BLAKE3_RAYON")) do
         "rayon"
       else
         nil

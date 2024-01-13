@@ -12,7 +12,7 @@ The package can be installed by adding `blake3` to your list of dependencies in 
 ```elixir
 def deps do
   [
-    {:blake3, "~> 1.0"}
+    {:blake3_precompiled, "~> 1.0"}
   ]
 end
 ```
@@ -31,7 +31,7 @@ export BLAKE3_RAYON=true
 or
 
 ```elixir
-config :blake3,
+config :blake3_precompiled,
    simd_mode: :neon,
    rayon: :true
 ```
