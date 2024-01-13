@@ -1,8 +1,8 @@
-defmodule MixBlake3.Project do
+defmodule Blake3Precompiled.Project do
   use Mix.Project
 
   @source_url "https://github.com/madclaws/blake3-precompiled"
-  @version "0.1.5"
+  @version "0.1.6"
 
   def project do
     [

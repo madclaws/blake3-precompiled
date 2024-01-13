@@ -1,6 +1,6 @@
-defmodule Blake3.Native do
+defmodule Blake3Precompiled.Native do
   @moduledoc """
-  Blake3.Native is the rustler module that will be replaced with the nif rust functions.
+  Blake3Precompiled.Native is the rustler module that will be replaced with the nif rust functions.
   This module doesn't need to be called direcly.
   """
 

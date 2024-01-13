@@ -12,7 +12,7 @@ use std::sync::Mutex;
 pub struct HasherResource(Mutex<blake3::Hasher>);
 
 rustler::init!(
-    "Elixir.Blake3.Native",
+    "Elixir.Blake3Precompiled.Native",
     [
         hash,
         new,
@@ -141,5 +141,5 @@ fn update_rayon<'a>(
     _resource: ResourceArc<HasherResource>,
     _buf: Binary,
 ) -> ResourceArc<HasherResource> {
-    panic!("Blake3.update_rayon() called without rayon feature enabled");
+    panic!("Blake3Precompiledupdate_rayon() called without rayon feature enabled");
 }

@@ -4,7 +4,7 @@ defmodule Blake3 do
   See the [README](readme.html) for installation and usage examples
   """
 
-  alias Blake3.Native
+  alias Blake3Precompiled.Native
 
   @type hasher :: reference()
 
@@ -90,7 +90,7 @@ defmodule Blake3 do
   end
 
   @doc """
-  reset a hasher to the default stat like when calling Blake3.new
+  reset a hasher to the default stat like when calling Blake3Precompilednew
   """
   @spec derive_key(state :: hasher()) :: hasher()
   def reset(state) do

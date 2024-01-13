@@ -5,7 +5,7 @@
 /priv
 
 # rust build dir.
-/native/blake3/target
+/native/blake3_precompiled/target
 
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
@@ -26,5 +26,5 @@ erl_crash.dump
 *.ez
 
 # Ignore package tarball (built via "mix hex.build").
-blake3-*.tar
+blake3_precompiled-*.tar
 
