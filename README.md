@@ -6,7 +6,7 @@ existing [Elixir bindings for the Rust Blake3 implementation](https://github.com
 
 ## Installation
 
-The package can be installed by adding `blake3` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `blake3_precompiled` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
